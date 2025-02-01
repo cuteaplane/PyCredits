@@ -481,7 +481,7 @@ class Credits_BGA:
         _(0, self.quarter_beat_time, 0, '...', 'Cor'.ljust(21))   
         _(0, self.quarter_beat_time, 0, '..\xf7', 'Cor (x2)'.ljust(21))
         for i in range(4):
-            _(2, self.quarter_beat_time, 0, '.\xf1.', 'Cor'.ljust(21) if i==0 else 'Cor (x3)'.ljust(21))
+            _(2, self.quarter_beat_time, 0, '.\xf1.', 'Cor'.ljust(21))
             _(0, self.quarter_beat_time, 0, '..\xf7', 'Corpo'.ljust(21))
             _(0, self.quarter_beat_time, 0, '\xea..', 'Corpora'.ljust(21))
         self.output(f'Credits{'\n'*13}\xaf {'Corporat'.ljust(21)}Frums', self.half_quarter_beat_time)
@@ -537,8 +537,7 @@ class Credits_BGA:
             _(7, 1, ['.......', f'.{'\xf7'*3}.{'\xf7'*2}', f'{'\xf7'*2}.{'\xf7'*3}.', '.......', f'.{'\xf7'*3}.{'\xf7'*2}', f'{'\xf7'*2}.{'\xf7'*3}.', '.......', 'R i d e'], 0, self.quarter_beat_time)
             _(3, 1, ['...\xf1...' if x!=2 and x!=7 else(f'.{'\xf1'*5}.' if x==2 or x==6 else 'S h o t' ) for x in range(8)], 2, self.half_quarter_beat_time)
             _(3, 1, ['...\xf1...' if x!=2 and x!=7 else(f'.{'\xf1'*5}.' if x==2 or x==6 else 'S h o t' ) for x in range(8)], 0, self.half_quarter_beat_time)
-            if(i==3):
-                break
+            if(i==3):break
             _(3, 1, ['...\xf1...' if x!=2 and x!=7 else(f'.{'\xf1'*5}.' if x==2 or x==6 else 'S h o t' ) for x in range(8)], 2, self.half_quarter_beat_time, 2)
             _(3, 1, ['...\xf1...' if x!=2 and x!=7 else(f'.{'\xf1'*5}.' if x==2 or x==6 else 'S h o t' ) for x in range(8)], 0, self.half_quarter_beat_time, 2)
 
@@ -546,9 +545,9 @@ class Credits_BGA:
         def ender_pearl(char:str, type:bool, wait_time:float, text:list, shine:int =0, hide:bool =0):
             s = self.light if shine == 0 else (self.median if shine == 1 else self.dark)
             if type ==0:
-                self.output(f'Credits{text[0]}{'\xae' if hide ==0 else ' '}\n\n   {s*2}       {2*self.eighth_note}{2*self.sixteenth_note}       {s*2}\n  {s*2}     {6*self.eighth_note}{6*self.sixteenth_note}   {s*2}\n  {s*2}  {8*self.eighth_note}{8*self.sixteenth_note}  {s*2}\n {s*2}   {6*self.eighth_note}{4*char}{6*self.sixteenth_note}   {s*2}\n {s*2} {6*self.eighth_note}{8*char}{6*self.sixteenth_note} {s*2}\n {s*2} {6*self.sixteenth_note}{8*char}{6*self.eighth_note} {s*2}\n {s*2}   {6*self.sixteenth_note}{4*char}{6*self.eighth_note}   {s*2}\n  {s*2}  {8*self.sixteenth_note}{8*self.eighth_note}  {s*2}\n  {s*2}    {6*self.sixteenth_note}{6*self.eighth_note}    {s*2}\n   {s*2}       {2*self.sixteenth_note}{2*self.eighth_note}       {s*2}\n\n{'\xaf' if hide ==0 else ' '}{text[1]}Frums', wait_time)
+                self.output(f'Credits{text[0]}{'\xae' if hide ==0 else ' '}\n\n  {s*2}        {2*self.eighth_note}{2*self.sixteenth_note}        {s*2}\n {s*2}      {6*self.eighth_note}{6*self.sixteenth_note}    {s*2}\n {s*2}   {8*self.eighth_note}{8*self.sixteenth_note}   {s*2}\n{s*2}    {6*self.eighth_note}{4*char}{6*self.sixteenth_note}    {s*2}\n{s*2}  {6*self.eighth_note}{8*char}{6*self.sixteenth_note}  {s*2}\n{s*2}  {6*self.sixteenth_note}{8*char}{6*self.eighth_note}  {s*2}\n{s*2}    {6*self.sixteenth_note}{4*char}{6*self.eighth_note}    {s*2}\n {s*2}   {8*self.sixteenth_note}{8*self.eighth_note}   {s*2}\n {s*2}     {6*self.sixteenth_note}{6*self.eighth_note}     {s*2}\n  {s*2}        {2*self.sixteenth_note}{2*self.eighth_note}        {s*2}\n\n{'\xaf' if hide ==0 else ' '}{text[1]}Frums', wait_time)
             elif type ==1:
-                self.output(f'Credits{text[0]}{'\xae' if hide ==0 else ' '}\n\n   {s*2}       {2*self.sixteenth_note}{2*self.eighth_note}       {s*2}\n  {s*2}     {6*self.sixteenth_note}{6*self.eighth_note}   {s*2}\n  {s*2}  {8*self.sixteenth_note}{8*self.eighth_note}  {s*2}\n {s*2}   {6*self.sixteenth_note}{4*char}{6*self.eighth_note}   {s*2}\n {s*2} {6*self.sixteenth_note}{8*char}{6*self.eighth_note} {s*2}\n {s*2} {6*self.eighth_note}{8*char}{6*self.sixteenth_note} {s*2}\n {s*2}   {6*self.eighth_note}{4*char}{6*self.sixteenth_note}   {s*2}\n  {s*2}  {8*self.eighth_note}{8*self.sixteenth_note}  {s*2}\n  {s*2}    {6*self.eighth_note}{6*self.sixteenth_note}    {s*2}\n   {s*2}       {2*self.eighth_note}{2*self.sixteenth_note}       {s*2}\n\n{'\xaf' if hide ==0 else ' '}{text[1]}Frums', wait_time)
+                self.output(f'Credits{text[0]}{'\xae' if hide ==0 else ' '}\n\n  {s*2}        {2*self.sixteenth_note}{2*self.eighth_note}        {s*2}\n {s*2}      {6*self.sixteenth_note}{6*self.eighth_note}    {s*2}\n {s*2}   {8*self.sixteenth_note}{8*self.eighth_note}   {s*2}\n{s*2}    {6*self.sixteenth_note}{4*char}{6*self.eighth_note}    {s*2}\n{s*2}  {6*self.sixteenth_note}{8*char}{6*self.eighth_note}  {s*2}\n{s*2}  {6*self.eighth_note}{8*char}{6*self.sixteenth_note}  {s*2}\n{s*2}    {6*self.eighth_note}{4*char}{6*self.sixteenth_note}    {s*2}\n {s*2}   {8*self.eighth_note}{8*self.sixteenth_note}   {s*2}\n {s*2}     {6*self.eighth_note}{6*self.sixteenth_note}     {s*2}\n  {s*2}        {2*self.eighth_note}{2*self.sixteenth_note}        {s*2}\n\n{'\xaf' if hide ==0 else ' '}{text[1]}Frums', wait_time)
         inv_tion = f"uo{chr(0x2c6)+chr(0x2021)}"
         inv_cop = f"uo{chr(0x2c6)+chr(0x2021)+chr(0x2030)+chr(0x2020)}od{chr(0x2020)}o{chr(0x2026)}"
         cop = "Corporation"
@@ -594,7 +593,7 @@ class Credits_BGA:
         ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{(self.median*4).rjust(20)}', f'{self.median*4}'.ljust(22)], hide=1)
         ender_pearl('\xea', 0, self.quarter_beat_time, [f'{('uo'+ ' '*6 + self.light*4).rjust(20)}', f'{self.light*4}      on'.ljust(22)])
         ender_pearl('\xea', 0, self.quarter_beat_time, [f'{(self.median*4).rjust(20)}', f'{self.median*4}'.ljust(22)], hide=1)
-        ender_pearl('.', 0, self.quarter_beat_time, [f'{('uo'+' '*7 + self.dark*3).rjust(20)}', f'{self.dark*3}        on'.ljust(22)], shine=2)
+        ender_pearl('.', 0, self.quarter_beat_time, [f'{('uo'+' '*7 + self.dark*3).rjust(20)}', f'{self.dark*3}       on'.ljust(22)], shine=2)
         ender_pearl('.', 0, self.quarter_beat_time, [f'{(self.median*3).rjust(20)}', f'{self.median*3}'.ljust(22)], hide=1, shine=1)
         ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{('uo'+' '*7  + self.light*3).rjust(20)}', f'{self.light*3}       on'.ljust(22)])
         ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{(self.median*3).rjust(20)}', f'{self.median*3}'.ljust(22)], hide=1)
@@ -602,17 +601,17 @@ class Credits_BGA:
         ender_pearl('\xea', 0, self.quarter_beat_time, [f'{(self.median*3).rjust(20)}', f'{self.median*3}'.ljust(22)], hide=1)
         ender_pearl('.', 0, self.quarter_beat_time, [f'{('uo'+' '*7  + self.light*3).rjust(20)}', f'{self.light*3}       on'.ljust(22)])
         ender_pearl('.', 0, self.quarter_beat_time, [f'{(self.median*3).rjust(20)}', f'{self.median*3}'.ljust(22)], hide=1)
-        ender_pearl('\xea', 0, self.quarter_beat_time, [f'{('u         '+self.dark*2).rjust(20)}', f'{self.dark*2}        n'.ljust(22)], shine=2)
+        ender_pearl('\xea', 0, self.quarter_beat_time, [f'{('u         '+self.dark*2).rjust(20)}', f'{self.dark*2}         n'.ljust(22)], shine=2)
         ender_pearl('\xea', 0, self.quarter_beat_time, [f'{(self.median*2).rjust(20)}', f'{self.median*2}'.ljust(22)], hide=1, shine=1)
-        ender_pearl('.', 0, self.quarter_beat_time,  [f'{('u         '+self.light*2).rjust(20)}', f'{self.light*2}        n'.ljust(22)])
+        ender_pearl('.', 0, self.quarter_beat_time,  [f'{('u         '+self.light*2).rjust(20)}', f'{self.light*2}         n'.ljust(22)])
         ender_pearl('.', 0, self.quarter_beat_time, [f'{(self.median*2).rjust(20)}', f'{self.median*2}'.ljust(22)], hide=1)
-        ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{('u         '+self.dark*2).rjust(20)}', f'{self.dark*2}        n'.ljust(22)])
+        ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{('u         '+self.dark*2).rjust(20)}', f'{self.dark*2}         n'.ljust(22)])
         ender_pearl('\xf7', 0, self.quarter_beat_time, [f'{(self.median*2).rjust(20)}', f'{self.median*2}'.ljust(22)], hide=1)
-        ender_pearl('\xea', 1, self.quarter_beat_time, [f'{('u         '+self.light*2).rjust(20)}', f'{self.light*2}        n'.ljust(22)], shine=2)
+        ender_pearl('\xea', 1, self.quarter_beat_time, [f'{('u         '+self.light*2).rjust(20)}', f'{self.light*2}         n'.ljust(22)], shine=2)
         ender_pearl('\xea', 1, self.quarter_beat_time, [f'{(self.median*2).rjust(20)}', f'{self.median*2}'.ljust(22)], hide=1, shine=1)
         for i in range(8):
-            ender_pearl('\xf1', 1, self.half_quarter_beat_time, [f'{('u          '+self.light).rjust(20)}', f'{self.light}         n'.ljust(22)] if i%2==0 else [f'{(self.median).rjust(20)}', f'{self.median}'.ljust(22)], shine=2 if i==0 else 0)
-            ender_pearl('.', 1, self.half_quarter_beat_time, [f'{(self.median).rjust(20)}', f'{self.median}'.ljust(22)] if i%2 == 0 else [f'{('u          '+self.light).rjust(20)}', f'{self.light}         n'.ljust(22)], hide=1, shine=1 if i==0 else 0)
+            ender_pearl('\xf1', 1, self.half_quarter_beat_time, [f'{('u          '+self.light).rjust(20)}', f'{self.light}          n'.ljust(22)] if i%2==0 else [f'{(self.median).rjust(20)}', f'{self.median}'.ljust(22)], shine=2 if i==0 else 0)
+            ender_pearl('.', 1, self.half_quarter_beat_time, [f'{(self.median).rjust(20)}', f'{self.median}'.ljust(22)] if i%2 == 0 else [f'{('u          '+self.light).rjust(20)}', f'{self.light}          n'.ljust(22)], hide=1, shine=1 if i==0 else 0)
 
     def _8(self):
         def ender_pearl(char:str, type:bool, wait_time:float, shine:int = 0):
