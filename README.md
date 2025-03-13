@@ -8,3 +8,5 @@
 用到的库：time sys os pygame
 
 !!!一定要把终端字体设置成font.ttf!!!
+
+**带3.8后缀的可在python 3.8及以上版本运行**
